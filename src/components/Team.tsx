@@ -1,13 +1,13 @@
 'use client'
 
 import { ImageWithFallback } from './figma/ImageWithFallback'
-const alexPhoto = 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=400&fit=crop'
-const nataliaPhoto = 'https://images.unsplash.com/photo-1494790108755-2616b612b786?w=300&h=400&fit=crop'
-const newAlexPhoto = 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=400&fit=crop'
-const ivanPhoto = 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300&h=400&fit=crop'
-const eugenePhoto = 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=300&h=400&fit=crop'
-const marinaPhoto = 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=300&h=400&fit=crop'
-const vitoPhoto = 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=300&h=400&fit=crop'
+import alexPhoto from '../assets/team-member-1.png'
+import nataliaPhoto from '../assets/team-member-2.png'
+import newAlexPhoto from '../assets/team-member-3.png'
+import ivanPhoto from '../assets/team-member-4.png'
+import eugenePhoto from '../assets/team-member-5.png'
+import marinaPhoto from '../assets/team-member-6.png'
+import vitoPhoto from '../assets/team-member-7.png'
 
 export function Team() {
   const wantedCriminals = [
