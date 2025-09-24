@@ -88,9 +88,9 @@ export function Hero() {
         muted
         loop
         playsInline
-        poster="https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=1920&h=1080&fit=crop&crop=center"
+        poster="https://images.unsplash.com/photo-1485846234645-a62644f84728?w=1920&h=1080&fit=crop&crop=center"
       >
-        <source src="https://mojju.s3.us-east-2.amazonaws.com/Mojju+Website+upscaled+(12mb).webm" type="video/webm" />
+        <source src="https://cdn.coverr.co/videos/coverr-digital-waves-4728/1080p.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
 
