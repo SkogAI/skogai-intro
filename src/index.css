@@ -332,15 +332,15 @@
   }
   
   .photo-sway-1 {
-    animation: photoSway1 8s ease-in-out infinite;
+    animation: photoSway1 16s ease-in-out infinite;
   }
   
   .photo-sway-2 {
-    animation: photoSway2 9s ease-in-out infinite;
+    animation: photoSway2 18s ease-in-out infinite;
   }
   
   .photo-sway-3 {
-    animation: photoSway3 7s ease-in-out infinite;
+    animation: photoSway3 14s ease-in-out infinite;
   }
   
   .rope-sway {
