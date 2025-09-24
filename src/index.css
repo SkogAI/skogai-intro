@@ -318,52 +318,52 @@
   
   .float-gentle {
     animation: float-gentle 6s ease-in-out infinite;
-    animation-duration: 6s;
+    animation-duration: 6s !important;
   }
   
   .pulse-glow {
     animation: pulse-glow 3s ease-in-out infinite;
-    animation-duration: 3s;
+    animation-duration: 3s !important;
   }
   
   .drift-left {
     animation: drift-left 8s ease-in-out infinite;
-    animation-duration: 8s;
+    animation-duration: 8s !important;
   }
   
   .drift-right {
     animation: drift-right 7s ease-in-out infinite;
-    animation-duration: 7s;
+    animation-duration: 7s !important;
   }
   
   .photo-sway-1 {
     animation: photoSway1 8s ease-in-out infinite;
-    animation-duration: 8s;
+    animation-duration: 8s !important;
   }
   
   .photo-sway-2 {
     animation: photoSway2 9s ease-in-out infinite;
-    animation-duration: 9s;
+    animation-duration: 9s !important;
   }
   
   .photo-sway-3 {
     animation: photoSway3 7s ease-in-out infinite;
-    animation-duration: 7s;
+    animation-duration: 7s !important;
   }
   
   .rope-sway {
     animation: ropeSlackSway 12s ease-in-out infinite;
-    animation-duration: 12s;
+    animation-duration: 12s !important;
   }
   
   .film-scroll-animation {
     animation: 28s linear infinite filmScroll;
-    animation-duration: 28s;
+    animation-duration: 28s !important;
   }
   
   .perforations-scroll-animation {
     animation: perforationsScroll 28s linear infinite;
-    animation-duration: 28s;
+    animation-duration: 28s !important;
   }
   
   /* Global animation slowdowns */
