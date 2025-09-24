@@ -7,9 +7,13 @@ export default {
   theme: {
     container: {
       center: true,
-      padding: "2rem",
+      padding: 'calc(var(--spacing) * 4)', // 1rem with 14px base = 14px padding
       screens: {
-        "2xl": "1400px",
+        sm: '40rem',
+        md: '48rem', 
+        lg: '64rem',
+        xl: '80rem',
+        '2xl': '96rem',
       },
     },
     extend: {
