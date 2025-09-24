@@ -47,7 +47,7 @@ export function About() {
       processSteps.forEach((_, index) => {
         setTimeout(() => {
           setActiveFrame(index)
-        }, index * 36000 + 12000) // Ultra slow: Start after 12s, then every 36s
+        }, index * 72000 + 24000) // Ultra slow: Start after 24s, then every 72s
       })
     }, 3000) // 3 second pause after section loads
   }, [])
@@ -99,7 +99,7 @@ export function About() {
             <div className="absolute top-0 left-0 right-0 h-6 bg-black z-20 overflow-hidden">
               <div className={`flex items-center justify-between px-12 h-full ${
                 animationStarted ? 'perforations-scroll-animation' : ''
-              }`} style={{ width: '200%' }}>
+              }`} style={{ width: '200%', animationDuration: '640s' }}>
                 {/* First set of perforations */}
                 {[...Array(20)].map((_, i) => (
                   <div key={`top-${i}`} className="w-4 h-3 bg-gray-800 rounded-sm border border-gray-700 flex-shrink-0" 
@@ -117,7 +117,7 @@ export function About() {
             <div className="absolute bottom-0 left-0 right-0 h-6 bg-black z-20 overflow-hidden">
               <div className={`flex items-center justify-between px-12 h-full ${
                 animationStarted ? 'perforations-scroll-animation' : ''
-              }`} style={{ width: '200%' }}>
+              }`} style={{ width: '200%', animationDuration: '640s' }}>
                 {/* First set of perforations */}
                 {[...Array(20)].map((_, i) => (
                   <div key={`bottom-${i}`} className="w-4 h-3 bg-gray-800 rounded-sm border border-gray-700 flex-shrink-0"
@@ -135,7 +135,7 @@ export function About() {
             <div className="relative py-6 px-8 overflow-hidden h-64 max-w-full">
               <div className={`flex transition-transform duration-1000 ease-in-out ${
                 animationStarted ? 'film-scroll-animation' : ''
-              }`} style={{ width: 'max-content', gap: '32px' }}>
+              }`} style={{ width: 'max-content', gap: '32px', animationDuration: '640s' }}>
                 
                 {/* Original sequence for seamless loop */}
                 {/* Start frame */}
