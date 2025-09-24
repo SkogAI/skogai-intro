@@ -63,7 +63,7 @@ export function About() {
         <div className="w-full h-full" style={{
           backgroundImage: `radial-gradient(circle at 1px 1px, rgba(0,0,0,0.8) 1px, transparent 0)`,
           backgroundSize: '3px 3px',
-          animation: 'filmGrain 0.3s infinite'
+          animation: 'filmGrain 3s infinite'
         }} />
       </div>
 
@@ -259,7 +259,7 @@ export function About() {
                 className="absolute top-1/2 left-1/2 w-48 h-48 -translate-x-1/2 -translate-y-1/2 rounded-full opacity-10"
                 style={{
                   background: 'radial-gradient(circle, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.4) 20%, rgba(255,255,0,0.2) 40%, transparent 60%)',
-                  animation: 'projectorLight 4s ease-in-out infinite'
+                  animation: 'projectorLight 12s ease-in-out infinite'
                 }}
               />
             </div>

@@ -316,19 +316,19 @@
   }
   
   .float-gentle {
-    animation: float-gentle 6s ease-in-out infinite;
+    animation: float-gentle 12s ease-in-out infinite;
   }
   
   .pulse-glow {
-    animation: pulse-glow 3s ease-in-out infinite;
+    animation: pulse-glow 6s ease-in-out infinite;
   }
   
   .drift-left {
-    animation: drift-left 8s ease-in-out infinite;
+    animation: drift-left 16s ease-in-out infinite;
   }
   
   .drift-right {
-    animation: drift-right 7s ease-in-out infinite;
+    animation: drift-right 14s ease-in-out infinite;
   }
   
   .photo-sway-1 {
@@ -348,11 +348,11 @@
   }
   
   .film-scroll-animation {
-    animation: filmScroll 240s linear infinite;
+    animation: filmScroll 480s linear infinite;
   }
   
   .perforations-scroll-animation {
-    animation: perforationsScroll 240s linear infinite;
+    animation: perforationsScroll 480s linear infinite;
   }
   
   /* Clean scrollbar */
