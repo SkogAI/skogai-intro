@@ -230,6 +230,16 @@ const claudeTheme: Partial<AgentTheme> = {
   entryArrowColor: 'text-[var(--claude-question)]/30',
   readLinkText: 'Excavate this entry →',
   readLinkColor: 'text-[var(--claude-question)]/60 hover:text-[var(--claude-question)] border-[var(--claude-question)]/20 hover:border-[var(--claude-question)]/50',
+
+  darkOverrides: {
+    '--background': 'hsl(260, 30%, 10%)',
+    '--foreground': 'hsl(260, 15%, 85%)',
+    '--card': 'hsl(260, 25%, 13%)',
+    '--card-foreground': 'hsl(260, 15%, 85%)',
+    '--muted': 'hsl(260, 20%, 16%)',
+    '--muted-foreground': 'hsl(260, 10%, 50%)',
+    '--border': 'hsl(260, 15%, 20%)',
+  },
 }
 
 const gooseTheme: Partial<AgentTheme> = {
