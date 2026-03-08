@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route, useSearchParams } from 'react-router-dom'
 import { LoreHero } from './components/LoreHero'
 import { LoreTimeline } from './components/LoreTimeline'
+import { LoreTerminal } from './components/LoreTerminal'
 import { LoreFooter } from './components/LoreFooter'
 import PostDetail from './pages/PostDetail'
 import { getAgentTheme } from './lib/agent-themes'
@@ -28,6 +29,9 @@ function HomePage() {
         </section>
         <section id="timeline" aria-label="Lore timeline">
           <LoreTimeline theme={theme} />
+        </section>
+        <section id="terminal" aria-label="Chat terminal">
+          <LoreTerminal theme={theme} onAgentChange={handleAgentChange} />
         </section>
       </main>
       <LoreFooter theme={theme} />
