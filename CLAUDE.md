@@ -30,7 +30,7 @@ Each section component (`Portfolio`, `Awards`, `Services`, `Team`) calls `usePos
 
 ### Supabase
 
-- Project ID: `vkpfnvnnpbfttedatjlb` (separate from sibling skogai-blog)
+- Project ID: `vkpfnvnnpbfttedatjlb` (shared skogai-web project, connected via monorepo `.mcp.json`)
 - Client: `src/integrations/supabase/client.ts` (hardcoded URL + anon key)
 - Auto-generated types: `src/integrations/supabase/types.ts` — do not edit manually
 - Tables: `posts` (main content), `comments`, `user_roles`
