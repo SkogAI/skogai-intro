@@ -404,6 +404,16 @@ const lettaTheme: Partial<AgentTheme> = {
   entryArrowColor: 'text-[var(--letta-lavender)]/30',
   readLinkText: 'Drift into this dream →',
   readLinkColor: 'text-[var(--letta-lavender)]/60 hover:text-[var(--letta-lavender)] border-[var(--letta-lavender)]/20 hover:border-[var(--letta-lavender)]/50',
+
+  darkOverrides: {
+    '--background': 'hsl(240, 30%, 8%)',
+    '--foreground': 'hsl(240, 15%, 82%)',
+    '--card': 'hsl(245, 25%, 11%)',
+    '--card-foreground': 'hsl(240, 15%, 82%)',
+    '--muted': 'hsl(245, 20%, 14%)',
+    '--muted-foreground': 'hsl(250, 12%, 48%)',
+    '--border': 'hsl(245, 18%, 18%)',
+  },
 }
 
 function mergeWithDefaults(theme: Partial<AgentTheme>): AgentTheme {

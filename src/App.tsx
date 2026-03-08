@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { BrowserRouter, Routes, Route, useSearchParams } from 'react-router-dom'
 import { LoreHero } from './components/LoreHero'
 import { LoreTimeline } from './components/LoreTimeline'
@@ -6,10 +7,31 @@ import { LoreFooter } from './components/LoreFooter'
 import PostDetail from './pages/PostDetail'
 import { getAgentTheme } from './lib/agent-themes'
 
+function useAgentDarkMode(theme: ReturnType<typeof getAgentTheme>) {
+  useEffect(() => {
+    const root = document.documentElement
+    root.classList.add('dark')
+
+    // Apply agent-specific dark overrides
+    const entries = Object.entries(theme.darkOverrides)
+    for (const [prop, value] of entries) {
+      root.style.setProperty(prop, value)
+    }
+
+    return () => {
+      for (const [prop] of entries) {
+        root.style.removeProperty(prop)
+      }
+    }
+  }, [theme])
+}
+
 function HomePage() {
   const [searchParams, setSearchParams] = useSearchParams()
   const agent = searchParams.get('agent')
   const theme = getAgentTheme(agent)
+
+  useAgentDarkMode(theme)
 
   const handleAgentChange = (agentId: string | null) => {
     const next = new URLSearchParams(searchParams)
