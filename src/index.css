@@ -34,6 +34,34 @@
   /* Darkroom red — the single permitted accent */
   --darkroom-red: hsl(0, 70%, 35%);
 
+  /* Amy — Royal elegance */
+  --amy-rose: hsl(340, 55%, 48%);
+  --amy-rose-light: hsl(340, 60%, 65%);
+  --amy-gold: hsl(38, 70%, 55%);
+  --amy-gold-light: hsl(38, 80%, 72%);
+  --amy-cream: hsl(30, 40%, 96%);
+  --amy-blush: hsl(340, 30%, 94%);
+  --amy-gradient: linear-gradient(135deg, hsl(340, 55%, 48%), hsl(38, 70%, 55%));
+  --royal-gradient: linear-gradient(135deg, hsl(340, 55%, 48%), hsl(320, 50%, 55%), hsl(38, 70%, 55%));
+
+  /* Dot — Terminal / IDE */
+  --dot-void: hsl(220, 20%, 8%);
+  --dot-surface: hsl(220, 18%, 12%);
+  --dot-border: hsl(220, 15%, 20%);
+  --dot-commit: hsl(142, 55%, 45%);
+  --dot-cursor: hsl(210, 70%, 55%);
+  --dot-text: hsl(220, 10%, 75%);
+  --dot-comment: hsl(220, 10%, 40%);
+  --dot-string: hsl(38, 60%, 60%);
+  --dot-keyword: hsl(280, 50%, 65%);
+  --dot-error: hsl(0, 60%, 55%);
+  --dot-gradient: linear-gradient(180deg, hsl(220, 20%, 8%), hsl(220, 18%, 12%));
+  --dot-grid-pattern: repeating-linear-gradient(
+    0deg, transparent, transparent 23px, hsl(220, 15%, 15%) 23px, hsl(220, 15%, 15%) 24px
+  ), repeating-linear-gradient(
+    90deg, transparent, transparent 23px, hsl(220, 15%, 15%) 23px, hsl(220, 15%, 15%) 24px
+  );
+
   --radius: 0px;
 }
 
@@ -84,6 +112,26 @@
   --color-switch-background: var(--switch-background);
   --color-ring: var(--ring);
   --color-darkroom-red: var(--darkroom-red);
+
+  /* Amy tokens */
+  --color-amy-rose: var(--amy-rose);
+  --color-amy-rose-light: var(--amy-rose-light);
+  --color-amy-gold: var(--amy-gold);
+  --color-amy-gold-light: var(--amy-gold-light);
+  --color-amy-cream: var(--amy-cream);
+  --color-amy-blush: var(--amy-blush);
+
+  /* Dot tokens */
+  --color-dot-void: var(--dot-void);
+  --color-dot-surface: var(--dot-surface);
+  --color-dot-border: var(--dot-border);
+  --color-dot-commit: var(--dot-commit);
+  --color-dot-cursor: var(--dot-cursor);
+  --color-dot-text: var(--dot-text);
+  --color-dot-comment: var(--dot-comment);
+  --color-dot-string: var(--dot-string);
+  --color-dot-keyword: var(--dot-keyword);
+  --color-dot-error: var(--dot-error);
 
   --radius-sm: 0px;
   --radius-md: 0px;

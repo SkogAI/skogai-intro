@@ -1,8 +1,10 @@
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { LoreHero } from './components/LoreHero'
 import { LoreTimeline } from './components/LoreTimeline'
 import { LoreFooter } from './components/LoreFooter'
+import PostDetail from './pages/PostDetail'
 
-export default function App() {
+function HomePage() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <main className="relative" role="main">
@@ -15,5 +17,16 @@ export default function App() {
       </main>
       <LoreFooter />
     </div>
+  )
+}
+
+export default function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/post/:slug" element={<PostDetail />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
