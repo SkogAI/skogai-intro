@@ -1,6 +1,9 @@
 'use client'
 
+import { usePostsByCategory } from '@/hooks/use-posts'
 import { ImageWithFallback } from './figma/ImageWithFallback'
+
+// Fallback images for team members (used when no image_url in DB)
 import marcusPhoto from '../assets/team-member-1.png'
 import sofiaPhoto from '../assets/team-member-2.png'
 import jakePhoto from '../assets/team-member-3.png'
@@ -9,72 +12,20 @@ import connorPhoto from '../assets/team-member-5.png'
 import zaraPhoto from '../assets/team-member-6.png'
 import leoPhoto from '../assets/team-member-7.png'
 
+const fallbackImages = [marcusPhoto, sofiaPhoto, jakePhoto, mayaPhoto, connorPhoto, zaraPhoto, leoPhoto]
+
 export function Team() {
-  const wantedCriminals = [
-    {
-      name: "Marcus 'The Pixel Bandit'",
-      crime: "ARMED CREATIVE ROBBERY",
-      bounty: "$8,500",
-      description: "Notorious for stealing ordinary footage and transforming it into extraordinary visual experiences. Approach with caution - carries dangerous levels of creative vision and technical expertise.",
-      image: marcusPhoto,
-      rotation: 'rotate-3',
-      mustacheStyle: "artistic"
-    },
-    {
-      name: "Sofia 'The Frame Thief'",
-      crime: "GRAND THEFT OF IMAGINATION",
-      bounty: "$6,200",
-      description: "Wanted for stealing impossible creative briefs and turning them into award-winning masterpieces. Armed with strategic thinking and dangerous levels of project management skills.",
-      image: sofiaPhoto,
-      rotation: 'rotate-2',
-      mustacheStyle: "handlebar"
-    },
-    {
-      name: "Jake 'The Render Rogue'",
-      crime: "MASTERMINDING TECHNICAL HEISTS",
-      bounty: "$11,800",
-      description: "Ringleader of rendering crimes, orchestrating elaborate computational operations. Wanted for leading sophisticated processing schemes that push hardware beyond its limits.",
-      image: jakePhoto,
-      rotation: 'rotate-2',
-      mustacheStyle: "thick"
-    },
-    {
-      name: "Maya 'The Code Crusher'",
-      crime: "DIGITAL WIZARDRY & ALGORITHM SORCERY",
-      bounty: "$9,300",
-      description: "Wanted for conjuring flawless code from chaotic requirements using forbidden programming magic. Known to transform complex problems into elegant solutions with mysterious technical powers.",
-      image: mayaPhoto,
-      rotation: '-rotate-2',
-      mustacheStyle: "curly"
-    },
-    {
-      name: "Connor 'The Digital Desperado'",
-      crime: "PRODUCTION WITH INTENT TO AMAZE",
-      bounty: "$13,700",
-      description: "Mastermind behind revolutionary content creation operations. Wanted for disrupting traditional production methods and making competitors question their entire approach.",
-      image: connorPhoto,
-      rotation: 'rotate-1',
-      mustacheStyle: "villainous"
-    },
-    {
-      name: "Zara 'The Motion Maverick'",
-      crime: "ANIMATION MANIPULATION & EFFECT FORGERY",
-      bounty: "$7,900",
-      description: "Notorious for crafting motion graphics so smooth they defy the laws of physics. Armed with After Effects mastery and a dangerous eye for kinetic perfection.",
-      image: zaraPhoto,
-      rotation: '-rotate-1',
-      mustacheStyle: "artistic"
-    },
-    {
-      name: "Leo 'The Effect Enforcer'",
-      crime: "WANDERING VFX SYNTHESIS SCHEMES",
-      bounty: "$10,400",
-      description: "A nomadic visual effects outlaw who drifts from project to project, leaving behind a trail of jaw-dropping composites and impossible cinematic magic. Master of the digital realm.",
-      image: leoPhoto,
-      rotation: 'rotate-3',
-      mustacheStyle: "handlebar"
-    }
-  ]
+  const { data: teamMembers = [], isLoading } = usePostsByCategory('team')
+
+  const wantedCriminals = teamMembers.map((member, index) => ({
+    name: member.title,
+    crime: member.excerpt || '',
+    bounty: member.metadata?.bounty || '$0',
+    description: member.content,
+    image: member.image_url || fallbackImages[index % fallbackImages.length],
+    rotation: member.metadata?.rotation || 'rotate-1',
+    mustacheStyle: member.metadata?.mustacheStyle || 'artistic',
+  }))
 
   const Mustache = ({ style, className }: { style: string, className?: string }) => {
     const mustaches = {
@@ -100,6 +51,14 @@ export function Team() {
           strokeWidth="0.5"
         />
       </svg>
+    )
+  }
+
+  if (isLoading) {
+    return (
+      <div className="relative py-32 bg-background w-full flex items-center justify-center">
+        <div className="w-8 h-8 border-4 border-foreground/20 border-t-foreground rounded-full animate-spin" />
+      </div>
     )
   }
 
@@ -138,26 +97,11 @@ export function Team() {
         </div>
 
         {/* Framed Wanted Board */}
-        <div className="max-w-7xl mx-auto" style={{ 
-          overflow: 'visible', 
-          height: 'auto', 
-          minHeight: '0', 
-          maxHeight: 'none' 
-        }}>
-          <div className="relative" style={{ 
-            overflow: 'visible', 
-            height: 'auto', 
-            minHeight: '0', 
-            maxHeight: 'none' 
-          }}>
+        <div className="max-w-7xl mx-auto" style={{ overflow: 'visible', height: 'auto', minHeight: '0', maxHeight: 'none' }}>
+          <div className="relative" style={{ overflow: 'visible', height: 'auto', minHeight: '0', maxHeight: 'none' }}>
             
             {/* Black Frame */}
-            <div className="bg-gradient-to-br from-black via-gray-900 to-black p-8 rounded-2xl shadow-2xl relative border border-gray-800/50" style={{ 
-              overflow: 'visible', 
-              height: 'auto', 
-              minHeight: '0', 
-              maxHeight: 'none' 
-            }}>
+            <div className="bg-gradient-to-br from-black via-gray-900 to-black p-8 rounded-2xl shadow-2xl relative border border-gray-800/50" style={{ overflow: 'visible', height: 'auto', minHeight: '0', maxHeight: 'none' }}>
               
               {/* Black frame texture */}
               <div className="absolute inset-0 opacity-15"
@@ -171,12 +115,7 @@ export function Team() {
                    }} />
               
               {/* Modern Board Background */}
-              <div className="bg-gradient-to-br from-slate-100 via-gray-50 to-slate-200 rounded-xl p-8 relative border border-slate-300/50" style={{ 
-                overflow: 'visible', 
-                height: 'auto', 
-                minHeight: '0', 
-                maxHeight: 'none' 
-              }}>
+              <div className="bg-gradient-to-br from-slate-100 via-gray-50 to-slate-200 rounded-xl p-8 relative border border-slate-300/50" style={{ overflow: 'visible', height: 'auto', minHeight: '0', maxHeight: 'none' }}>
                 
                 {/* Modern subtle texture */}
                 <div className="absolute inset-0 opacity-30"
@@ -190,185 +129,18 @@ export function Team() {
                      }} />
 
                 {/* Wanted Posters Grid */}
-                <div className="relative z-10" style={{ 
-                  overflow: 'visible', 
-                  height: 'auto', 
-                  minHeight: '0', 
-                  maxHeight: 'none' 
-                }}>
+                <div className="relative z-10" style={{ overflow: 'visible', height: 'auto', minHeight: '0', maxHeight: 'none' }}>
                   {/* First row - 4 posters */}
-                  <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8 mb-8" style={{ 
-                    overflow: 'visible', 
-                    height: 'auto', 
-                    minHeight: '0', 
-                    maxHeight: 'none' 
-                  }}>
-                    {wantedCriminals.slice(0, 4).map((criminal, index) => (
-                      <div
-                        key={criminal.name}
-                        className={`group transform ${criminal.rotation} hover:rotate-0 transition-all duration-500 hover:scale-105 hover:z-20`}
-                        style={{
-                          filter: 'drop-shadow(4px 4px 8px rgba(0,0,0,0.3))',
-                          overflow: 'visible',
-                          height: 'auto',
-                          minHeight: '0',
-                          maxHeight: 'none'
-                        }}
-                      >
-                        
-                        {/* Black Framed Wanted Poster */}
-                        <div className="bg-gradient-to-b from-white to-gray-50 border-4 border-black relative shadow-lg" style={{ 
-                          overflow: 'visible', 
-                          height: 'auto', 
-                          minHeight: '0', 
-                          maxHeight: 'none' 
-                        }}>
-                          
-                          {/* Modern push pins */}
-                          <div className="absolute -top-2 left-4 w-4 h-4 bg-gradient-to-br from-red-500 to-red-600 rounded-full shadow-lg border border-red-700" />
-                          <div className="absolute -top-2 right-4 w-4 h-4 bg-gradient-to-br from-red-500 to-red-600 rounded-full shadow-lg border border-red-700" />
-                          
-                          {/* Subtle modern paper effect */}
-                          <div className="absolute inset-0 bg-gradient-to-br from-slate-50/30 via-transparent to-gray-100/20" />
-                          <div className="absolute top-4 right-4 w-6 h-6 bg-slate-200/40 rounded-full" />
-                          <div className="absolute bottom-6 left-4 w-4 h-4 bg-gray-300/30 rounded-full" />
-
-                          <div className="p-6 text-center relative z-10">
-                            
-                            {/* WANTED Header */}
-                            <div className="mb-4">
-                              <h3 className="text-3xl font-black text-black mb-2"
-                                  style={{ 
-                                    fontFamily: 'serif',
-                                    letterSpacing: '0.1em'
-                                  }}>
-                                WANTED
-                              </h3>
-                              <div className="w-full h-0.5 bg-black mb-2" />
-                            </div>
-
-                            {/* Photo */}
-                            <div className="relative mb-4 mx-auto w-32 h-32 border-2 border-black bg-gray-100 rounded-sm" style={{ 
-                              overflow: 'visible' 
-                            }}>
-                              <ImageWithFallback
-                                src={criminal.image}
-                                alt={criminal.name}
-                                className="w-full h-full object-cover rounded-sm"
-                                style={{
-                                  filter: 'sepia(20%) contrast(105%) brightness(100%) hue-rotate(5deg) saturate(90%)'
-                                }}
-                              />
-                              
-                              {/* Subtle modern overlay */}
-                              <div className="absolute inset-0 bg-gradient-to-t from-slate-100/10 to-transparent rounded-sm" />
-                              
-                              {/* Mustache */}
-                              <Mustache 
-                                style={criminal.mustacheStyle} 
-                                className="bottom-4 left-1/2 -translate-x-1/2 opacity-80" 
-                              />
-                            </div>
-
-                            {/* Details */}
-                            <div className="text-left space-y-2" style={{ fontFamily: 'serif' }}>
-                              <div className="font-black text-lg text-black">{criminal.name}</div>
-                              <div className="font-bold text-red-600 text-base">BOUNTY: {criminal.bounty}</div>
-                              <div className="text-sm text-gray-800 leading-relaxed bg-gray-50/50 p-3 border-l-2 border-black">
-                                {criminal.description}
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+                  <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8 mb-8" style={{ overflow: 'visible', height: 'auto', minHeight: '0', maxHeight: 'none' }}>
+                    {wantedCriminals.slice(0, 4).map((criminal) => (
+                      <WantedPoster key={criminal.name} criminal={criminal} Mustache={Mustache} />
                     ))}
                   </div>
                   
-                  {/* Second row - 3 posters centered */}
-                  <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 max-w-5xl mx-auto" style={{ 
-                    overflow: 'visible', 
-                    height: 'auto', 
-                    minHeight: '0', 
-                    maxHeight: 'none' 
-                  }}>
-                    {wantedCriminals.slice(4, 7).map((criminal, index) => (
-                      <div
-                        key={criminal.name}
-                        className={`group transform ${criminal.rotation} hover:rotate-0 transition-all duration-500 hover:scale-105 hover:z-20`}
-                        style={{
-                          filter: 'drop-shadow(4px 4px 8px rgba(0,0,0,0.3))',
-                          overflow: 'visible',
-                          height: 'auto',
-                          minHeight: '0',
-                          maxHeight: 'none'
-                        }}
-                      >
-                        
-                        {/* Black Framed Wanted Poster */}
-                        <div className="bg-gradient-to-b from-white to-gray-50 border-4 border-black relative shadow-lg" style={{ 
-                          overflow: 'visible', 
-                          height: 'auto', 
-                          minHeight: '0', 
-                          maxHeight: 'none' 
-                        }}>
-                          
-                          {/* Modern push pins */}
-                          <div className="absolute -top-2 left-4 w-4 h-4 bg-gradient-to-br from-red-500 to-red-600 rounded-full shadow-lg border border-red-700" />
-                          <div className="absolute -top-2 right-4 w-4 h-4 bg-gradient-to-br from-red-500 to-red-600 rounded-full shadow-lg border border-red-700" />
-                          
-                          {/* Subtle modern paper effect */}
-                          <div className="absolute inset-0 bg-gradient-to-br from-slate-50/30 via-transparent to-gray-100/20" />
-                          <div className="absolute top-4 right-4 w-6 h-6 bg-slate-200/40 rounded-full" />
-                          <div className="absolute bottom-6 left-4 w-4 h-4 bg-gray-300/30 rounded-full" />
-
-                          <div className="p-6 text-center relative z-10">
-                            
-                            {/* WANTED Header */}
-                            <div className="mb-4">
-                              <h3 className="text-3xl font-black text-black mb-2"
-                                  style={{ 
-                                    fontFamily: 'serif',
-                                    letterSpacing: '0.1em'
-                                  }}>
-                                WANTED
-                              </h3>
-                              <div className="w-full h-0.5 bg-black mb-2" />
-                            </div>
-
-                            {/* Photo */}
-                            <div className="relative mb-4 mx-auto w-32 h-32 border-2 border-black bg-gray-100 rounded-sm" style={{ 
-                              overflow: 'visible' 
-                            }}>
-                              <ImageWithFallback
-                                src={criminal.image}
-                                alt={criminal.name}
-                                className="w-full h-full object-cover rounded-sm"
-                                style={{
-                                  filter: 'sepia(20%) contrast(105%) brightness(100%) hue-rotate(5deg) saturate(90%)'
-                                }}
-                              />
-                              
-                              {/* Subtle modern overlay */}
-                              <div className="absolute inset-0 bg-gradient-to-t from-slate-100/10 to-transparent rounded-sm" />
-                              
-                              {/* Mustache */}
-                              <Mustache 
-                                style={criminal.mustacheStyle} 
-                                className="bottom-4 left-1/2 -translate-x-1/2 opacity-80" 
-                              />
-                            </div>
-
-                            {/* Details */}
-                            <div className="text-left space-y-2" style={{ fontFamily: 'serif' }}>
-                              <div className="font-black text-lg text-black">{criminal.name}</div>
-                              <div className="font-bold text-red-600 text-base">BOUNTY: {criminal.bounty}</div>
-                              <div className="text-sm text-gray-800 leading-relaxed bg-gray-50/50 p-3 border-l-2 border-black">
-                                {criminal.description}
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+                  {/* Second row - remaining posters centered */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 max-w-5xl mx-auto" style={{ overflow: 'visible', height: 'auto', minHeight: '0', maxHeight: 'none' }}>
+                    {wantedCriminals.slice(4).map((criminal) => (
+                      <WantedPoster key={criminal.name} criminal={criminal} Mustache={Mustache} />
                     ))}
                   </div>
                 </div>
@@ -380,6 +152,68 @@ export function Team() {
           </div>
         </div>
 
+      </div>
+    </div>
+  )
+}
+
+function WantedPoster({ criminal, Mustache }: { criminal: any, Mustache: any }) {
+  return (
+    <div
+      className={`group transform ${criminal.rotation} hover:rotate-0 transition-all duration-500 hover:scale-105 hover:z-20`}
+      style={{
+        filter: 'drop-shadow(4px 4px 8px rgba(0,0,0,0.3))',
+        overflow: 'visible',
+        height: 'auto',
+        minHeight: '0',
+        maxHeight: 'none'
+      }}
+    >
+      <div className="bg-gradient-to-b from-white to-gray-50 border-4 border-black relative shadow-lg" style={{ overflow: 'visible', height: 'auto', minHeight: '0', maxHeight: 'none' }}>
+        
+        {/* Modern push pins */}
+        <div className="absolute -top-2 left-4 w-4 h-4 bg-gradient-to-br from-red-500 to-red-600 rounded-full shadow-lg border border-red-700" />
+        <div className="absolute -top-2 right-4 w-4 h-4 bg-gradient-to-br from-red-500 to-red-600 rounded-full shadow-lg border border-red-700" />
+        
+        {/* Subtle modern paper effect */}
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-50/30 via-transparent to-gray-100/20" />
+        <div className="absolute top-4 right-4 w-6 h-6 bg-slate-200/40 rounded-full" />
+        <div className="absolute bottom-6 left-4 w-4 h-4 bg-gray-300/30 rounded-full" />
+
+        <div className="p-6 text-center relative z-10">
+          
+          {/* WANTED Header */}
+          <div className="mb-4">
+            <h3 className="text-3xl font-black text-black mb-2"
+                style={{ fontFamily: 'serif', letterSpacing: '0.1em' }}>
+              WANTED
+            </h3>
+            <div className="w-full h-0.5 bg-black mb-2" />
+          </div>
+
+          {/* Photo */}
+          <div className="relative mb-4 mx-auto w-32 h-32 border-2 border-black bg-gray-100 rounded-sm" style={{ overflow: 'visible' }}>
+            <ImageWithFallback
+              src={criminal.image}
+              alt={criminal.name}
+              className="w-full h-full object-cover rounded-sm"
+              style={{
+                filter: 'sepia(20%) contrast(105%) brightness(100%) hue-rotate(5deg) saturate(90%)'
+              }}
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-100/10 to-transparent rounded-sm" />
+            <Mustache style={criminal.mustacheStyle} className="bottom-4 left-1/2 -translate-x-1/2 opacity-80" />
+          </div>
+
+          {/* Details */}
+          <div className="text-left space-y-2" style={{ fontFamily: 'serif' }}>
+            <div className="font-black text-lg text-black">{criminal.name}</div>
+            <div className="font-bold text-red-600 text-base">BOUNTY: {criminal.bounty}</div>
+            <div className="text-sm text-gray-800 leading-relaxed bg-gray-50/50 p-3 border-l-2 border-black">
+              {criminal.description}
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   )
