@@ -115,6 +115,16 @@ const defaultTheme: AgentTheme = {
   entryArrowColor: 'text-foreground/20',
   readLinkText: 'Read full entry →',
   readLinkColor: 'text-foreground/40 hover:text-foreground/70 border-foreground/20 hover:border-foreground/50',
+
+  darkOverrides: {
+    '--background': 'hsl(30, 15%, 12%)',
+    '--foreground': 'hsl(210, 15%, 85%)',
+    '--card': 'hsl(30, 12%, 15%)',
+    '--card-foreground': 'hsl(210, 15%, 85%)',
+    '--muted': 'hsl(30, 10%, 18%)',
+    '--muted-foreground': 'hsl(210, 10%, 55%)',
+    '--border': 'hsl(30, 10%, 22%)',
+  },
 }
 
 const amyTheme: Partial<AgentTheme> = {
