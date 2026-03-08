@@ -57,6 +57,9 @@ export interface AgentTheme {
   entryArrowColor: string
   readLinkText: string
   readLinkColor: string
+
+  // Dark mode overrides — CSS variable values applied to :root when agent is active
+  darkOverrides: Record<string, string>
 }
 
 const defaultTheme: AgentTheme = {
