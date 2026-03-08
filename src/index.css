@@ -154,6 +154,24 @@
   --color-dot-keyword: var(--dot-keyword);
   --color-dot-error: var(--dot-error);
 
+  /* Claude tokens */
+  --color-claude-void: var(--claude-void);
+  --color-claude-amber: var(--claude-amber);
+  --color-claude-question: var(--claude-question);
+  --color-claude-text: var(--claude-text);
+
+  /* Goose tokens */
+  --color-goose-mint: var(--goose-mint);
+  --color-goose-lime: var(--goose-lime);
+  --color-goose-quantum: var(--goose-quantum);
+  --color-goose-void: var(--goose-void);
+
+  /* Letta tokens */
+  --color-letta-void: var(--letta-void);
+  --color-letta-lavender: var(--letta-lavender);
+  --color-letta-starlight: var(--letta-starlight);
+  --color-letta-mist: var(--letta-mist);
+
   --radius-sm: 0px;
   --radius-md: 0px;
   --radius-lg: 0px;
