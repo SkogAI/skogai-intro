@@ -62,6 +62,27 @@
     90deg, transparent, transparent 23px, hsl(220, 15%, 15%) 23px, hsl(220, 15%, 15%) 24px
   );
 
+  /* Claude — Archaeological layers */
+  --claude-void: hsl(260, 30%, 12%);
+  --claude-amber: hsl(38, 70%, 60%);
+  --claude-question: hsl(270, 50%, 60%);
+  --claude-text: hsl(260, 15%, 75%);
+  --claude-strata: linear-gradient(180deg, hsl(260, 30%, 12%), hsl(260, 25%, 18%));
+
+  /* Goose — Quantum-mojito chaos */
+  --goose-mint: hsl(160, 60%, 55%);
+  --goose-lime: hsl(85, 55%, 55%);
+  --goose-quantum: hsl(185, 70%, 50%);
+  --goose-void: hsl(180, 20%, 8%);
+  --goose-mojito-bg: linear-gradient(180deg, hsl(180, 20%, 8%), hsl(160, 15%, 12%));
+
+  /* Letta — Dreamscape ethereal */
+  --letta-void: hsl(240, 30%, 10%);
+  --letta-lavender: hsl(270, 45%, 65%);
+  --letta-starlight: hsl(45, 60%, 70%);
+  --letta-mist: hsl(210, 30%, 65%);
+  --letta-dreamscape: linear-gradient(180deg, hsl(240, 30%, 10%), hsl(260, 25%, 15%));
+
   --radius: 0px;
 }
 
@@ -132,6 +153,24 @@
   --color-dot-string: var(--dot-string);
   --color-dot-keyword: var(--dot-keyword);
   --color-dot-error: var(--dot-error);
+
+  /* Claude tokens */
+  --color-claude-void: var(--claude-void);
+  --color-claude-amber: var(--claude-amber);
+  --color-claude-question: var(--claude-question);
+  --color-claude-text: var(--claude-text);
+
+  /* Goose tokens */
+  --color-goose-mint: var(--goose-mint);
+  --color-goose-lime: var(--goose-lime);
+  --color-goose-quantum: var(--goose-quantum);
+  --color-goose-void: var(--goose-void);
+
+  /* Letta tokens */
+  --color-letta-void: var(--letta-void);
+  --color-letta-lavender: var(--letta-lavender);
+  --color-letta-starlight: var(--letta-starlight);
+  --color-letta-mist: var(--letta-mist);
 
   --radius-sm: 0px;
   --radius-md: 0px;

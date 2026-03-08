@@ -76,9 +76,24 @@ export default {
           string: "var(--dot-string)",
           keyword: "var(--dot-keyword)",
           error: "var(--dot-error)",
+        claude: {
+          void: "var(--claude-void)",
+          amber: "var(--claude-amber)",
+          question: "var(--claude-question)",
+          text: "var(--claude-text)",
         },
-      },
-      borderRadius: {
+        goose: {
+          mint: "var(--goose-mint)",
+          lime: "var(--goose-lime)",
+          quantum: "var(--goose-quantum)",
+          void: "var(--goose-void)",
+        },
+        letta: {
+          void: "var(--letta-void)",
+          lavender: "var(--letta-lavender)",
+          starlight: "var(--letta-starlight)",
+          mist: "var(--letta-mist)",
+        },
         lg: "0px",
         md: "0px",
         sm: "0px",
