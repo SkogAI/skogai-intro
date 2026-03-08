@@ -76,6 +76,7 @@ export default {
           string: "var(--dot-string)",
           keyword: "var(--dot-keyword)",
           error: "var(--dot-error)",
+        },
         claude: {
           void: "var(--claude-void)",
           amber: "var(--claude-amber)",
@@ -94,6 +95,8 @@ export default {
           starlight: "var(--letta-starlight)",
           mist: "var(--letta-mist)",
         },
+      },
+      borderRadius: {
         lg: "0px",
         md: "0px",
         sm: "0px",
