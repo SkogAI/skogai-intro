@@ -92,6 +92,15 @@ function CategorySection({ category }: { category: LoreCategory }) {
                         <p className="text-sm text-foreground/60 leading-[1.8] tracking-wide">
                           {post.content}
                         </p>
+                        {(post as any).slug && (
+                          <Link
+                            to={`/post/${(post as any).slug}`}
+                            className="inline-block mt-4 text-[10px] tracking-[0.2em] uppercase text-foreground/40 hover:text-foreground/70 border-b border-foreground/20 hover:border-foreground/50 pb-0.5 gentle-animation"
+                            onClick={(e) => e.stopPropagation()}
+                          >
+                            Read full entry →
+                          </Link>
+                        )}
                       </div>
                     )}
                   </div>
