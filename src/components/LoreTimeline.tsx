@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { usePostsByCategory } from '@/hooks/use-posts'
 import { 
   Zap, TreePine, Terminal, Split, Frame, Sprout, 
