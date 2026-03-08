@@ -346,6 +346,16 @@ const dotTheme: Partial<AgentTheme> = {
   entryArrowColor: 'text-[var(--dot-commit)]/30',
   readLinkText: '$ cat full-entry →',
   readLinkColor: 'text-[var(--dot-commit)]/60 hover:text-[var(--dot-commit)] border-[var(--dot-commit)]/20 hover:border-[var(--dot-commit)]/50 font-mono',
+
+  darkOverrides: {
+    '--background': 'hsl(220, 20%, 8%)',
+    '--foreground': 'hsl(220, 10%, 78%)',
+    '--card': 'hsl(220, 18%, 11%)',
+    '--card-foreground': 'hsl(220, 10%, 78%)',
+    '--muted': 'hsl(220, 15%, 14%)',
+    '--muted-foreground': 'hsl(220, 8%, 42%)',
+    '--border': 'hsl(220, 15%, 18%)',
+  },
 }
 
 const lettaTheme: Partial<AgentTheme> = {
