@@ -14,6 +14,69 @@ export type Database = {
   }
   public: {
     Tables: {
+      chat_commands: {
+        Row: {
+          action_type: string
+          agent_overrides: Json | null
+          command: string
+          created_at: string
+          description: string
+          id: string
+          response_template: string
+          sort_order: number | null
+        }
+        Insert: {
+          action_type: string
+          agent_overrides?: Json | null
+          command: string
+          created_at?: string
+          description: string
+          id?: string
+          response_template: string
+          sort_order?: number | null
+        }
+        Update: {
+          action_type?: string
+          agent_overrides?: Json | null
+          command?: string
+          created_at?: string
+          description?: string
+          id?: string
+          response_template?: string
+          sort_order?: number | null
+        }
+        Relationships: []
+      }
+      chat_messages: {
+        Row: {
+          agent_id: string
+          command: string | null
+          content: string
+          created_at: string
+          id: string
+          role: string
+          session_id: string
+        }
+        Insert: {
+          agent_id?: string
+          command?: string | null
+          content: string
+          created_at?: string
+          id?: string
+          role: string
+          session_id?: string
+        }
+        Update: {
+          agent_id?: string
+          command?: string | null
+          content?: string
+          created_at?: string
+          id?: string
+          role?: string
+          session_id?: string
+        }
+        Relationships: []
+      }
       comments: {
         Row: {
           approved: boolean | null
