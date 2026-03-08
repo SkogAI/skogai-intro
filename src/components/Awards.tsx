@@ -15,62 +15,54 @@ export function Awards() {
 
   const awards = awardPosts.map((post, index) => ({
     image: post.image_url || fallbackImages[index % fallbackImages.length],
-    delay: `${index * 0.5}s`,
     variant: post.metadata?.variant || 'light',
   }))
 
   if (isLoading) {
     return (
       <section className="relative py-20 bg-background flex items-center justify-center">
-        <div className="w-8 h-8 border-4 border-foreground/20 border-t-foreground rounded-full animate-spin" />
+        <div className="w-6 h-6 border-2 border-foreground/20 border-t-foreground animate-spin" />
       </section>
     )
   }
 
   return (
     <section id="awards" className="relative py-20 bg-background overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-card/30 to-background" />
-
       <div className="container mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-3 mb-6">
-            <div className="w-3 h-3 bg-accent-purple rounded-full animate-pulse" />
-            <span className="text-sm font-semibold text-muted-foreground">
-              Recognition & Achievement
-            </span>
-            <div className="w-3 h-3 bg-accent-blue rounded-full animate-pulse" />
-          </div>
+          <span className="text-xs font-medium tracking-[0.3em] uppercase text-foreground/40 block mb-6">
+            Recognition & Achievement
+          </span>
           
-          <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black leading-tight mb-6 text-foreground">
-            Awards & Recognition
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-foreground tracking-[0.04em]">
+            Awards
           </h2>
           
-          <p className="text-xl text-muted-foreground leading-relaxed max-w-3xl mx-auto">
+          <p className="text-sm text-foreground/60 leading-relaxed max-w-3xl mx-auto">
             Celebrated excellence in AI-powered film production
           </p>
         </div>
 
         <div className="relative max-w-7xl mx-auto">
-          <div className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6 lg:gap-8">
             {awards.map((award, index) => (
               <div
                 key={index}
                 className="group relative flex flex-col items-center text-center"
-                style={{ animationDelay: award.delay }}
               >
-                <div className="relative mb-6">
-                  <div className={`relative p-6 rounded-2xl border shadow-md transition-all duration-500 hover:scale-105 ${
-                    award.variant === 'dark' ? 'bg-gray-800 border-gray-700' : 'bg-background border-border'
-                  }`}
-                       style={{ boxShadow: '0 8px 24px rgba(0,0,0,0.08)' }}>
+                <div className="relative">
+                  <div className={`relative p-6 border transition-all duration-300 hover:border-foreground/20 ${
+                    award.variant === 'dark' 
+                      ? 'bg-foreground/5 border-foreground/10' 
+                      : 'bg-background border-foreground/10'
+                  }`}>
                     <img 
                       src={award.image}
                       alt="Film Festival Award Laurel"
                       className="w-full h-auto max-w-48 mx-auto"
-                      style={{ filter: 'contrast(1.02) saturate(1.1)' }}
+                      style={{ filter: 'grayscale(100%) contrast(1.05)' }}
                     />
                   </div>
-                  <div className="float-gentle absolute inset-0 pointer-events-none" />
                 </div>
               </div>
             ))}
