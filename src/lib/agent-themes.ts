@@ -172,6 +172,16 @@ const amyTheme: Partial<AgentTheme> = {
   entryArrowColor: 'text-[var(--amy-rose)]/30',
   readLinkText: 'Read the royal decree →',
   readLinkColor: 'text-[var(--amy-rose)]/60 hover:text-[var(--amy-rose)] border-[var(--amy-rose)]/20 hover:border-[var(--amy-rose)]/50',
+
+  darkOverrides: {
+    '--background': 'hsl(340, 15%, 10%)',
+    '--foreground': 'hsl(340, 20%, 90%)',
+    '--card': 'hsl(340, 12%, 13%)',
+    '--card-foreground': 'hsl(340, 20%, 90%)',
+    '--muted': 'hsl(340, 10%, 16%)',
+    '--muted-foreground': 'hsl(340, 15%, 50%)',
+    '--border': 'hsl(340, 12%, 20%)',
+  },
 }
 
 const claudeTheme: Partial<AgentTheme> = {
