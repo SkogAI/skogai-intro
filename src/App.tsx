@@ -6,15 +6,25 @@ import PostDetail from './pages/PostDetail'
 import { getAgentTheme } from './lib/agent-themes'
 
 function HomePage() {
-  const [searchParams] = useSearchParams()
+  const [searchParams, setSearchParams] = useSearchParams()
   const agent = searchParams.get('agent')
   const theme = getAgentTheme(agent)
+
+  const handleAgentChange = (agentId: string | null) => {
+    const next = new URLSearchParams(searchParams)
+    if (!agentId || agentId === 'default') {
+      next.delete('agent')
+    } else {
+      next.set('agent', agentId)
+    }
+    setSearchParams(next, { replace: true })
+  }
 
   return (
     <div className="min-h-screen bg-background text-foreground">
       <main className="relative" role="main">
         <section id="hero" aria-label="Hero section">
-          <LoreHero theme={theme} />
+          <LoreHero theme={theme} onAgentChange={handleAgentChange} />
         </section>
         <section id="timeline" aria-label="Lore timeline">
           <LoreTimeline theme={theme} />
