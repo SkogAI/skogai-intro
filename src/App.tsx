@@ -1,27 +1,39 @@
-import { Toaster } from "@/components/ui/toaster";
-import { Toaster as Sonner } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Index from "./pages/Index";
-import NotFound from "./pages/NotFound";
+import { Hero } from './components/Hero'
+import { Portfolio } from './components/Portfolio'
+import { Awards } from './components/Awards'
+import { About } from './components/About'
+import { Services } from './components/Services'
+import { Team } from './components/Team'
+import { Contact } from './components/Contact'
+import { Footer } from './components/Footer'
 
-const queryClient = new QueryClient();
-
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
-);
-
-export default App;
+export default function App() {
+  return (
+    <div className="min-h-screen bg-background text-foreground" style={{ overflow: 'visible' }}>
+      <main className="relative" role="main" style={{ overflow: 'visible' }}>
+        <section id="hero" aria-label="Hero section">
+          <Hero />
+        </section>
+        <section id="portfolio" aria-label="Portfolio section">
+          <Portfolio />
+        </section>
+        <section id="awards" aria-label="Awards section">
+          <Awards />
+        </section>
+        <section id="about" aria-label="About section">
+          <About />
+        </section>
+        <section id="services" aria-label="Services section">
+          <Services />
+        </section>
+        <section id="team" aria-label="Team section" style={{ overflow: 'visible', height: 'auto', minHeight: '0', maxHeight: 'none' }}>
+          <Team />
+        </section>
+        <section id="contact" aria-label="Contact section">
+          <Contact />
+        </section>
+      </main>
+      <Footer />
+    </div>
+  )
+}
