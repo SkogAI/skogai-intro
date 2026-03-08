@@ -288,6 +288,16 @@ const gooseTheme: Partial<AgentTheme> = {
   entryArrowColor: 'text-[var(--goose-mint)]/30',
   readLinkText: 'Collapse this wavefunction →',
   readLinkColor: 'text-[var(--goose-mint)]/60 hover:text-[var(--goose-mint)] border-[var(--goose-mint)]/20 hover:border-[var(--goose-mint)]/50',
+
+  darkOverrides: {
+    '--background': 'hsl(180, 20%, 7%)',
+    '--foreground': 'hsl(160, 15%, 82%)',
+    '--card': 'hsl(170, 18%, 10%)',
+    '--card-foreground': 'hsl(160, 15%, 82%)',
+    '--muted': 'hsl(170, 12%, 14%)',
+    '--muted-foreground': 'hsl(160, 10%, 45%)',
+    '--border': 'hsl(170, 12%, 18%)',
+  },
 }
 
 const dotTheme: Partial<AgentTheme> = {
