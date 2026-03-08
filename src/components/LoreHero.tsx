@@ -159,9 +159,11 @@ function AgentHeroIcon({ theme }: { theme: AgentTheme }) {
   }
 }
 
-export function LoreHero({ theme }: { theme: AgentTheme }) {
+export function LoreHero({ theme, onAgentChange }: { theme: AgentTheme; onAgentChange?: (agentId: string | null) => void }) {
   const [isMuted, setIsMuted] = useState(true)
+  const [switcherOpen, setSwitcherOpen] = useState(false)
   const videoRef = useRef<HTMLVideoElement>(null)
+  const agents = getAvailableAgents()
 
   useEffect(() => {
     if (videoRef.current) {
@@ -208,11 +210,59 @@ export function LoreHero({ theme }: { theme: AgentTheme }) {
 
       {/* Grain overlay */}
       {theme.grainOpacity > 0 && (
-        <div className="absolute inset-0 pointer-events-none z-25" style={{
+        <div className="absolute inset-0 pointer-events-none" style={{
           opacity: theme.grainOpacity,
           backgroundImage: `radial-gradient(circle at 1px 1px, ${theme.grainColor} 1px, transparent 0)`,
           backgroundSize: '3px 3px',
+          zIndex: 25,
         }} />
+      )}
+
+      {/* Agent switcher — top left */}
+      {onAgentChange && (
+        <div className="absolute top-6 left-6 z-50">
+          <button
+            onClick={() => setSwitcherOpen(!switcherOpen)}
+            className="p-2 border border-white/20 text-white/60 hover:text-white gentle-animation cursor-pointer text-[10px] tracking-[0.15em] uppercase font-mono flex items-center gap-2"
+          >
+            <span className="w-2 h-2 rounded-full" style={{ background: theme.accentColor, opacity: 0.7 }} />
+            {theme.id === 'default' ? 'SKG' : theme.name}
+          </button>
+
+          <AnimatePresence>
+            {switcherOpen && (
+              <motion.div
+                initial={{ opacity: 0, y: -4 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -4 }}
+                transition={{ duration: 0.15 }}
+                className="absolute top-full left-0 mt-1 border border-white/15 backdrop-blur-sm min-w-[140px]"
+                style={{ background: 'rgba(0,0,0,0.7)' }}
+              >
+                {agents.map((a) => (
+                  <button
+                    key={a.id}
+                    onClick={() => {
+                      onAgentChange(a.id === 'default' ? null : a.id)
+                      setSwitcherOpen(false)
+                    }}
+                    className={`w-full text-left px-4 py-2.5 text-[10px] tracking-[0.15em] uppercase font-mono flex items-center gap-3 gentle-animation cursor-pointer ${
+                      a.id === theme.id
+                        ? 'text-white bg-white/10'
+                        : 'text-white/50 hover:text-white hover:bg-white/5'
+                    }`}
+                  >
+                    <span
+                      className="w-2 h-2 rounded-full flex-shrink-0"
+                      style={{ background: a.accentColor, opacity: a.id === theme.id ? 1 : 0.4 }}
+                    />
+                    {a.id === 'default' ? 'SKOGAI' : a.name}
+                  </button>
+                ))}
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
       )}
 
       {/* Sound toggle */}
@@ -247,9 +297,10 @@ export function LoreHero({ theme }: { theme: AgentTheme }) {
       {/* Goose wave effect at bottom */}
       {theme.id === 'goose' && (
         <motion.div
-          className="absolute bottom-0 left-0 right-0 h-24 z-35 pointer-events-none"
+          className="absolute bottom-0 left-0 right-0 h-24 pointer-events-none"
           style={{
             background: 'linear-gradient(0deg, var(--goose-void) 0%, transparent 100%)',
+            zIndex: 35,
           }}
           animate={{ opacity: [0.6, 0.9, 0.6] }}
           transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
