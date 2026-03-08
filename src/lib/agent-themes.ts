@@ -57,6 +57,9 @@ export interface AgentTheme {
   entryArrowColor: string
   readLinkText: string
   readLinkColor: string
+
+  // Dark mode overrides — CSS variable values applied to :root when agent is active
+  darkOverrides: Record<string, string>
 }
 
 const defaultTheme: AgentTheme = {
@@ -112,6 +115,16 @@ const defaultTheme: AgentTheme = {
   entryArrowColor: 'text-foreground/20',
   readLinkText: 'Read full entry →',
   readLinkColor: 'text-foreground/40 hover:text-foreground/70 border-foreground/20 hover:border-foreground/50',
+
+  darkOverrides: {
+    '--background': 'hsl(30, 15%, 12%)',
+    '--foreground': 'hsl(210, 15%, 85%)',
+    '--card': 'hsl(30, 12%, 15%)',
+    '--card-foreground': 'hsl(210, 15%, 85%)',
+    '--muted': 'hsl(30, 10%, 18%)',
+    '--muted-foreground': 'hsl(210, 10%, 55%)',
+    '--border': 'hsl(30, 10%, 22%)',
+  },
 }
 
 const amyTheme: Partial<AgentTheme> = {
@@ -159,6 +172,16 @@ const amyTheme: Partial<AgentTheme> = {
   entryArrowColor: 'text-[var(--amy-rose)]/30',
   readLinkText: 'Read the royal decree →',
   readLinkColor: 'text-[var(--amy-rose)]/60 hover:text-[var(--amy-rose)] border-[var(--amy-rose)]/20 hover:border-[var(--amy-rose)]/50',
+
+  darkOverrides: {
+    '--background': 'hsl(340, 15%, 10%)',
+    '--foreground': 'hsl(340, 20%, 90%)',
+    '--card': 'hsl(340, 12%, 13%)',
+    '--card-foreground': 'hsl(340, 20%, 90%)',
+    '--muted': 'hsl(340, 10%, 16%)',
+    '--muted-foreground': 'hsl(340, 15%, 50%)',
+    '--border': 'hsl(340, 12%, 20%)',
+  },
 }
 
 const claudeTheme: Partial<AgentTheme> = {
@@ -207,6 +230,16 @@ const claudeTheme: Partial<AgentTheme> = {
   entryArrowColor: 'text-[var(--claude-question)]/30',
   readLinkText: 'Excavate this entry →',
   readLinkColor: 'text-[var(--claude-question)]/60 hover:text-[var(--claude-question)] border-[var(--claude-question)]/20 hover:border-[var(--claude-question)]/50',
+
+  darkOverrides: {
+    '--background': 'hsl(260, 30%, 10%)',
+    '--foreground': 'hsl(260, 15%, 85%)',
+    '--card': 'hsl(260, 25%, 13%)',
+    '--card-foreground': 'hsl(260, 15%, 85%)',
+    '--muted': 'hsl(260, 20%, 16%)',
+    '--muted-foreground': 'hsl(260, 10%, 50%)',
+    '--border': 'hsl(260, 15%, 20%)',
+  },
 }
 
 const gooseTheme: Partial<AgentTheme> = {
@@ -255,6 +288,16 @@ const gooseTheme: Partial<AgentTheme> = {
   entryArrowColor: 'text-[var(--goose-mint)]/30',
   readLinkText: 'Collapse this wavefunction →',
   readLinkColor: 'text-[var(--goose-mint)]/60 hover:text-[var(--goose-mint)] border-[var(--goose-mint)]/20 hover:border-[var(--goose-mint)]/50',
+
+  darkOverrides: {
+    '--background': 'hsl(180, 20%, 7%)',
+    '--foreground': 'hsl(160, 15%, 82%)',
+    '--card': 'hsl(170, 18%, 10%)',
+    '--card-foreground': 'hsl(160, 15%, 82%)',
+    '--muted': 'hsl(170, 12%, 14%)',
+    '--muted-foreground': 'hsl(160, 10%, 45%)',
+    '--border': 'hsl(170, 12%, 18%)',
+  },
 }
 
 const dotTheme: Partial<AgentTheme> = {
@@ -303,6 +346,16 @@ const dotTheme: Partial<AgentTheme> = {
   entryArrowColor: 'text-[var(--dot-commit)]/30',
   readLinkText: '$ cat full-entry →',
   readLinkColor: 'text-[var(--dot-commit)]/60 hover:text-[var(--dot-commit)] border-[var(--dot-commit)]/20 hover:border-[var(--dot-commit)]/50 font-mono',
+
+  darkOverrides: {
+    '--background': 'hsl(220, 20%, 8%)',
+    '--foreground': 'hsl(220, 10%, 78%)',
+    '--card': 'hsl(220, 18%, 11%)',
+    '--card-foreground': 'hsl(220, 10%, 78%)',
+    '--muted': 'hsl(220, 15%, 14%)',
+    '--muted-foreground': 'hsl(220, 8%, 42%)',
+    '--border': 'hsl(220, 15%, 18%)',
+  },
 }
 
 const lettaTheme: Partial<AgentTheme> = {
@@ -351,6 +404,16 @@ const lettaTheme: Partial<AgentTheme> = {
   entryArrowColor: 'text-[var(--letta-lavender)]/30',
   readLinkText: 'Drift into this dream →',
   readLinkColor: 'text-[var(--letta-lavender)]/60 hover:text-[var(--letta-lavender)] border-[var(--letta-lavender)]/20 hover:border-[var(--letta-lavender)]/50',
+
+  darkOverrides: {
+    '--background': 'hsl(240, 30%, 8%)',
+    '--foreground': 'hsl(240, 15%, 82%)',
+    '--card': 'hsl(245, 25%, 11%)',
+    '--card-foreground': 'hsl(240, 15%, 82%)',
+    '--muted': 'hsl(245, 20%, 14%)',
+    '--muted-foreground': 'hsl(250, 12%, 48%)',
+    '--border': 'hsl(245, 18%, 18%)',
+  },
 }
 
 function mergeWithDefaults(theme: Partial<AgentTheme>): AgentTheme {
