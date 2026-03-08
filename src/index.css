@@ -113,6 +113,26 @@
   --color-ring: var(--ring);
   --color-darkroom-red: var(--darkroom-red);
 
+  /* Amy tokens */
+  --color-amy-rose: var(--amy-rose);
+  --color-amy-rose-light: var(--amy-rose-light);
+  --color-amy-gold: var(--amy-gold);
+  --color-amy-gold-light: var(--amy-gold-light);
+  --color-amy-cream: var(--amy-cream);
+  --color-amy-blush: var(--amy-blush);
+
+  /* Dot tokens */
+  --color-dot-void: var(--dot-void);
+  --color-dot-surface: var(--dot-surface);
+  --color-dot-border: var(--dot-border);
+  --color-dot-commit: var(--dot-commit);
+  --color-dot-cursor: var(--dot-cursor);
+  --color-dot-text: var(--dot-text);
+  --color-dot-comment: var(--dot-comment);
+  --color-dot-string: var(--dot-string);
+  --color-dot-keyword: var(--dot-keyword);
+  --color-dot-error: var(--dot-error);
+
   --radius-sm: 0px;
   --radius-md: 0px;
   --radius-lg: 0px;

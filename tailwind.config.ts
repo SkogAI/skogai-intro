@@ -57,6 +57,26 @@ export default {
         darkroom: {
           red: "var(--darkroom-red)",
         },
+        amy: {
+          rose: "var(--amy-rose)",
+          "rose-light": "var(--amy-rose-light)",
+          gold: "var(--amy-gold)",
+          "gold-light": "var(--amy-gold-light)",
+          cream: "var(--amy-cream)",
+          blush: "var(--amy-blush)",
+        },
+        dot: {
+          void: "var(--dot-void)",
+          surface: "var(--dot-surface)",
+          border: "var(--dot-border)",
+          commit: "var(--dot-commit)",
+          cursor: "var(--dot-cursor)",
+          text: "var(--dot-text)",
+          comment: "var(--dot-comment)",
+          string: "var(--dot-string)",
+          keyword: "var(--dot-keyword)",
+          error: "var(--dot-error)",
+        },
       },
       borderRadius: {
         lg: "0px",
